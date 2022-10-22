@@ -8,26 +8,38 @@ const Weather = ({ data }) => {
     <div className="container-weather">
       <div className="top">
         <div className="temp_pict">
-          <div className="temp-actually">{data.main.temp}</div>
+          <div className="temp-actually">{data.main.temp.toFixed(0)}°</div>
           <div className="top-corner">
-            <Image
-              src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-              layout="fill"
-            />
+            <div className="contain-icon">
+              <img
+                src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                layout="fill"
+                className="icon"
+              />
+            </div>
             <p>{data.weather[0].description}</p>
           </div>
         </div>
-        <p className="temp-min">{data.main.temp_min}</p>
-        <p className="temp-max">{data.main.temp_max}</p>
+        <div className="contain-temp-bloc">
+          <p className="temp-max">Max. {data.main.temp_max.toFixed(0)}°</p>
+          <p className="temp-min">Min. {data.main.temp_min.toFixed(0)}°</p>
+        </div>
       </div>
 
       <div className="middle">
-        <p>{data.main.humidity}</p>
+        <p className="humidity">
+          <span>Humidité</span>
+          {data.main.humidity}°
+        </p>
         <div className="align-temp">
-          <p>
+          <p className="vertical-temp">
+            <span>Lever du soleil</span>
+
             {moment.unix(data.sys.sunrise).tz("Europe/Paris").format("HH:mm")}
           </p>
-          <p>
+          <p className="vertical-temp">
+            <span>Coucher du soleil</span>
+
             {moment.unix(data.sys.sunset).tz("Europe/Paris").format("HH:mm")}
           </p>
         </div>

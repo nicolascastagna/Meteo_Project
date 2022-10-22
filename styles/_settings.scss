@@ -17,10 +17,15 @@ $font-1: "Montserrat", sans-serif;
 }
 body {
     margin: 0 auto;
+    background-image: url("/pict.jpg");
+    background-repeat: no-repeat, repeat;
+    height: 440px; 
+    background-position: center; 
+    background-size: cover;
 }
-.grid {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 20px;
-}
+// .grid {
+//     max-width: 1200px;
+//     width: 100%;
+//     margin: 0 auto;
+//     padding: 20px;
+// }

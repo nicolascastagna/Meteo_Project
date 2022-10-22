@@ -13,4 +13,45 @@ main {
 }
 .container-weather {
     margin: 0;
+    font-size: 18px;
+    .middle {
+        .humidity {
+            text-align: center;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .align-temp {
+            display: flex;
+            justify-content: space-around;
+            .vertical-temp {
+               flex-direction: column;
+               display: flex;
+            }
+        }
+    }
+    .top {
+        .contain-temp-bloc {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .temp_pict {
+            .temp-actually {
+                font-size: 62px;
+                font-weight: 900;
+                text-align: center;
+            }
+            .top-corner {
+                text-align: center;
+            }
+        }
+    }
+}
+.contain-icon {
+    text-align: center;
+    .icon {
+        width: 80px;
+        height: 80px;
+    }
 }
