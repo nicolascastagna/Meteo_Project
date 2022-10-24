@@ -1,32 +1,48 @@
 main {
     margin: 0 auto;
     align-items: center;
-    max-width: 1200px;
+    max-width: 600px;
     form {
         text-align: center;
         margin-top: 30px;
         & input {
-            padding: 10px;
+            padding: 15px;
             border: 1px solid black;
+            margin-top: 15px;
+            border-radius: 10px;
+            border: none;
+            opacity: 0.9;
+            cursor: pointer;
+            letter-spacing: 1.5px;
+            &:hover {
+                opacity: 1;
+                transition: 150ms ease-out;
+            }
         }
     }
 }
 .container-weather {
     margin: 0;
     font-size: 18px;
+    .humidity {
+        @include box-shadow;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        width: 140px;
+        margin-right: auto;
+        margin-left: auto;
+    }
     .middle {
-        .humidity {
-            text-align: center;
-            margin: 20px;
-            display: flex;
-            flex-direction: column;
-        }
         .align-temp {
             display: flex;
             justify-content: space-around;
+            margin-top: 50px;
             .vertical-temp {
                flex-direction: column;
                display: flex;
+               text-align: center;
+               @include box-shadow;
             }
         }
     }
@@ -35,10 +51,21 @@ main {
             display: flex;
             justify-content: space-around;
             margin-top: 30px;
+            align-items: center;
+            margin-left: 10px;
+            margin-right: 10px;
         }
         .temp_pict {
+            .city-temp {
+                font-size: 26px;
+                font-weight: 900;
+                text-align: center;
+                padding-right: 10px;
+                margin-bottom: 10px;
+                letter-spacing: 1.5px;
+            }
             .temp-actually {
-                font-size: 62px;
+                font-size: 64px;
                 font-weight: 900;
                 text-align: center;
             }
@@ -53,5 +80,21 @@ main {
     .icon {
         width: 80px;
         height: 80px;
+    }
+}
+.form {
+    text-align: center;
+}
+.temp-max, .temp-min {
+    @include box-shadow;
+}
+
+.contain-loading {
+    display: flex;
+    margin-top: 30px;
+    img {
+    margin-right: auto;
+    margin-left: auto;
+    width: 165px;
     }
 }

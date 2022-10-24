@@ -1,7 +1,11 @@
 import React from "react";
 
 function Spinner() {
-  return <div>Spinner</div>;
+  return (
+    <div className="contain-loading">
+      <img src="/loading-spinner.svg" alt="" />
+    </div>
+  );
 }
 
 export default Spinner;

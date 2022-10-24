@@ -1,13 +1,11 @@
 import moment from "moment-timezone";
-import Image from "next/image";
-import React from "react";
 
 const Weather = ({ data }) => {
-  console.log(data);
   return (
     <div className="container-weather">
       <div className="top">
         <div className="temp_pict">
+          <div className="city-temp">{data.name}</div>
           <div className="temp-actually">{data.main.temp.toFixed(0)}°</div>
           <div className="top-corner">
             <div className="contain-icon">
@@ -17,20 +15,20 @@ const Weather = ({ data }) => {
                 className="icon"
               />
             </div>
-            <p>{data.weather[0].description}</p>
+            <p className="description-weather">{data.weather[0].description}</p>
           </div>
         </div>
         <div className="contain-temp-bloc">
           <p className="temp-max">Max. {data.main.temp_max.toFixed(0)}°</p>
+          <p className="humidity">
+            <span>Humidité</span>
+            {data.main.humidity}°
+          </p>
           <p className="temp-min">Min. {data.main.temp_min.toFixed(0)}°</p>
         </div>
       </div>
 
       <div className="middle">
-        <p className="humidity">
-          <span>Humidité</span>
-          {data.main.humidity}°
-        </p>
         <div className="align-temp">
           <p className="vertical-temp">
             <span>Lever du soleil</span>

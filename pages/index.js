@@ -2,24 +2,34 @@ import Head from "next/head";
 import axios from "axios";
 import { useState } from "react";
 import Weather from "../components/Weather";
+import Spinner from "../components/Spinner";
 
 export default function Home() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&lang=fr`;
 
   const fetchWeather = (e) => {
+    const formError = document.querySelector(".form.error");
     e.preventDefault();
     setLoading(true);
-    axios.get(url).then((response) => {
-      setWeather(response.data);
-    });
+    axios
+      .get(url)
+      .then((response) => {
+        setWeather(response.data);
+        formError.innerHTML = "";
+      })
+      .catch((err) => {
+        if (err.response.data.cod) {
+          formError.innerHTML =
+            "La ville n'a pas été trouvé, essayez une nouvelle localisation.";
+        }
+      });
     setCity("");
     setLoading(false);
   };
-
   if (loading) {
     return <Spinner />;
   } else {
@@ -38,11 +48,12 @@ export default function Home() {
                 onChange={(e) => setCity(e.target.value)}
                 className="input-city"
                 type="text"
-                placeholder="Search city"
+                placeholder="Entrez une ville"
               />
             </div>
             <button onClick={fetchWeather}></button>
           </form>
+          <div className="form error"></div>
           {weather.main && <Weather data={weather} />}
         </main>
       </div>

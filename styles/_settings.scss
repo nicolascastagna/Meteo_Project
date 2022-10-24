@@ -14,12 +14,13 @@ $font-1: "Montserrat", sans-serif;
     outline: none;
     border: none;
     text-decoration: none;
+    font-weight: 500;
 }
 body {
     margin: 0 auto;
     background-image: url("/pict.jpg");
     background-repeat: no-repeat, repeat;
-    height: 440px; 
+    height: 100vh; 
     background-position: center; 
     background-size: cover;
 }
