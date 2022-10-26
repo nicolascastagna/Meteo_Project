@@ -50,8 +50,10 @@ export default function Home() {
                 type="text"
                 placeholder="Entrez une ville"
               />
+              <button className="button-input" onClick={fetchWeather}>
+                Valider
+              </button>
             </div>
-            <button onClick={fetchWeather}></button>
           </form>
           <div className="form error"></div>
           {weather.main && <Weather data={weather} />}

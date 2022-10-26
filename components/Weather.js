@@ -42,7 +42,7 @@ const Weather = ({ data }) => {
           </p>
         </div>
       </div>
-      <div className="bottom"></div>
+      <div className="bottom">Créé par Nicolas Castagna</div>
     </div>
   );
 };
