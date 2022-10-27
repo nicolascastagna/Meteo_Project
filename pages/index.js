@@ -45,6 +45,7 @@ export default function Home() {
           <form onSubmit={fetchWeather} className="form-meteo">
             <div>
               <input
+                value={city}
                 onChange={(e) => setCity(e.target.value)}
                 className="input-city"
                 type="text"
